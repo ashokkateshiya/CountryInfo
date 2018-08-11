@@ -63,4 +63,10 @@ public class CountryInfoPresenter implements CountryContract.Presenter {
         });
 
     }
+
+    @Override
+    public void refreshCountryInfo() {
+        mCountryRepo.refreshCountryInfo();
+        loadCountryInfo();
+    }
 }

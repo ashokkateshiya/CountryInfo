@@ -26,5 +26,7 @@ public interface CountryContract {
 
     interface Presenter extends BasePresenter {
         void loadCountryInfo();
+
+        void refreshCountryInfo();
     }
 }

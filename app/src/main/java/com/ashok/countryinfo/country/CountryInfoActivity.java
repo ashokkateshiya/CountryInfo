@@ -59,7 +59,7 @@ public class CountryInfoActivity extends AppCompatActivity implements SwipeRefre
 
     @Override
     public void onRefresh() {
-        mPresenter.start();
+        mPresenter.refreshCountryInfo();
     }
 
     @Override

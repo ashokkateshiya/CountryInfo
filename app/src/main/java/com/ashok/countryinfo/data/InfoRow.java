@@ -5,6 +5,12 @@ public class InfoRow {
     private String description;
     private String imageHref;
 
+    public InfoRow(String title, String description, String imageHref) {
+        this.title = title;
+        this.description = description;
+        this.imageHref = imageHref;
+    }
+
     public String getTitle() {
         return title;
     }
