@@ -58,7 +58,7 @@ public class CountryInfoPresenter implements CountryContract.Presenter {
 
                 mCountryView.showLoading(false);
 
-                mCountryView.showLoadingCountryError();
+                mCountryView.showNoCountryInfoAvailable();
             }
         });
 

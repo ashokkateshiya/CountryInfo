@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.ashok.countryinfo.MyApplication;
 import com.ashok.countryinfo.R;
 import com.ashok.countryinfo.data.InfoRow;
+import com.ashok.countryinfo.utils.AppUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -59,7 +60,12 @@ public class CountryInfoActivity extends AppCompatActivity implements SwipeRefre
 
     @Override
     public void onRefresh() {
-        mPresenter.refreshCountryInfo();
+        if (AppUtils.isOnline(this)) {
+            mPresenter.refreshCountryInfo();
+        } else {
+            mSwipeRefreshLayout.setRefreshing(false);
+            showOffline();
+        }
     }
 
     @Override
@@ -79,7 +85,11 @@ public class CountryInfoActivity extends AppCompatActivity implements SwipeRefre
 
     @Override
     public void showNoCountryInfoAvailable() {
-        Toast.makeText(this, "No data available", Toast.LENGTH_LONG).show();
+        if (AppUtils.isOnline(this)) {
+            Toast.makeText(this, "No data available", Toast.LENGTH_LONG).show();
+        } else {
+            showOffline();
+        }
     }
 
     @Override
@@ -90,6 +100,10 @@ public class CountryInfoActivity extends AppCompatActivity implements SwipeRefre
     @Override
     public boolean isActive() {
         return isActive;
+    }
+
+    private void showOffline() {
+        Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show();
     }
 
     @Override

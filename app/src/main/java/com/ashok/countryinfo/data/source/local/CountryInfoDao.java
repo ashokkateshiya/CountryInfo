@@ -11,7 +11,7 @@ import com.ashok.countryinfo.data.source.local.entities.CountryInfoEntity;
 import java.util.ArrayList;
 
 /**
- * Created by Eval-Ranjitha on 11-08-2018.
+ * Created by Ashok on 11-08-2018.
  */
 
 @Dao
