@@ -42,11 +42,14 @@ final public class RetrofitHelper {
         initRetrofit();
     }
 
+    /**
+     * initialize retrofit. Called only once.
+     * Call this method before use any network transaction
+     */
     private void init() {
         if (mService != null) return;
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
-//                .addInterceptor(new RequestInterceptor())
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .readTimeout(2, TimeUnit.MINUTES)
                 .writeTimeout(5, TimeUnit.MINUTES);
@@ -71,6 +74,10 @@ final public class RetrofitHelper {
         Log.i(getClass().getName(), "Retrofit initialized");
     }
 
+    /**
+     *
+     * @return all apis available for network transaction
+     */
     public static APIService getServices() {
         if (helper == null || helper.mService == null)
             throw new IllegalStateException("retrofit service not initialize yet.");

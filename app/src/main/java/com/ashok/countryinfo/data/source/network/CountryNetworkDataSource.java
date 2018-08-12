@@ -20,6 +20,10 @@ public class CountryNetworkDataSource implements CountryDataSource {
         return countryDataSource = new CountryNetworkDataSource();
     }
 
+    /**
+     * Loads country information from server
+     * @param countryInfoCallbacks information callbacks to return data
+     */
     @Override
     public void getCountryInfo(final CountryInfoCallbacks countryInfoCallbacks) {
         RetrofitHelper.getServices().getCountryInfo().enqueue(

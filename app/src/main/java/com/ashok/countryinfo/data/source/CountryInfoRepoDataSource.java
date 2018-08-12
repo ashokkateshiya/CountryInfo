@@ -6,6 +6,9 @@ package com.ashok.countryinfo.data.source;
 
 public interface CountryInfoRepoDataSource extends CountryDataSource{
 
+    /**
+     * refresh country information from server
+     */
     void refreshCountryInfo();
 
 }

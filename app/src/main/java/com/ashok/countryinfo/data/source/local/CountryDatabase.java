@@ -13,7 +13,6 @@ import com.ashok.countryinfo.data.source.local.entities.CountryInfoEntity;
  * The Room Database that contains the Task table.
  */
 @Database(entities = {CountryEntity.class, CountryInfoEntity.class}, version = 1)
-@TypeConverters(Converters.class)
 public abstract class CountryDatabase extends RoomDatabase {
 
     private static CountryDatabase INSTANCE;

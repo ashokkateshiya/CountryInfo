@@ -17,6 +17,7 @@ import java.util.ArrayList;
 @Dao
 public interface CountryInfoDao {
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertCountryInfo(ArrayList<CountryInfoEntity> info);
 

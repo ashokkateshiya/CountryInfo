@@ -26,6 +26,10 @@ public class CountryLocalDataSource implements CountryDataSource {
         return countryDataSource = new CountryLocalDataSource(executors, countryInfoDao);
     }
 
+    /**
+     * Load country information from local data source
+     * @param countryInfoCallbacks information callbacks to return data
+     */
     @Override
     public void getCountryInfo(final CountryInfoCallbacks countryInfoCallbacks) {
         mAppExecutors.diskIO().execute(new Runnable() {
@@ -72,7 +76,7 @@ public class CountryLocalDataSource implements CountryDataSource {
                     cie.countryId = ce.id;
                     cie.title = i.getTitle();
                     cie.description = i.getDescription();
-                    cie.imageHref = i.getDescription();
+                    cie.imageHref = i.getImageHref();
 
                     ciel.add(cie);
                 }
