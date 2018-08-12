@@ -19,8 +19,10 @@ import com.ashok.countryinfo.MyApplication;
 import com.ashok.countryinfo.R;
 import com.ashok.countryinfo.data.InfoRow;
 import com.ashok.countryinfo.utils.AppUtils;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +144,12 @@ public class CountryInfoActivity extends AppCompatActivity implements SwipeRefre
             holder.tvTitle.setText(mValues.get(position).getTitle());
             holder.tvDesciption.setText(mValues.get(position).getDescription());
             holder.itemView.setTag(mValues.get(position));
-            Picasso.get().load(mValues.get(position).getImageHref());
+            try {
+                Glide.with(mParentActivity).load(new URL(mValues.get(position).getImageHref())).into(holder.ivThumb);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            //Picasso.get().load(mValues.get(position).getImageHref());
         }
 
         @Override

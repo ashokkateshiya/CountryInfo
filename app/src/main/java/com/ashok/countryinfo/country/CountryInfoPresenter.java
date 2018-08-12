@@ -43,7 +43,7 @@ public class CountryInfoPresenter implements CountryContract.Presenter {
 
                 ArrayList<InfoRow> infoRows = new ArrayList<>();
                 for(InfoRow i : countryInfo.getRows()){
-                    if(i.getTitle() != null){
+                    if(i.getTitle() != null && i.getDescription() != null ){
                         infoRows.add(i);
                     }
                 }
